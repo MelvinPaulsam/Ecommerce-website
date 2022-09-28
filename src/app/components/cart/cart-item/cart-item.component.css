@@ -1,0 +1,17 @@
+.col-2,
+.col {
+    padding: 0 1vh;
+}
+
+.col-2 {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.close {
+    margin-left: 10px;
+    cursor: pointer;
+}

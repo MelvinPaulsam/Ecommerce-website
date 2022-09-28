@@ -1,0 +1,23 @@
+.navigation {
+    display: block;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    background: #33B5E5;
+    padding: 20px 200px 20px 200px;
+}
+
+a, #title{
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#title {
+    font-size: xx-large;
+}
+
+.links {
+    display: block;
+}
+
+

@@ -1,0 +1,83 @@
+<form #form="ngForm" (ngSubmit)="submitForm()">
+    <p>SHIPPING</p>
+
+    <label for="name">FULL NAME</label>
+    <input 
+        name="name"
+        type="text" 
+        id="name" 
+        required  
+        minlength="6" 
+        maxlength="64"
+        placeholder="Enter you full name" 
+        [(ngModel)]="customer.name"
+        #fullName="ngModel">
+
+    <label for="address">ADDRESS</label>
+    <input 
+        name="address"
+        type="text" 
+        id="address" 
+        required  
+        minlength="6" 
+        maxlength="64"
+        placeholder="Enter your address" 
+        [(ngModel)]="customer.address"
+        #address="ngModel">
+
+    <label for="credit">CREDIT CARD NUMBER</label>
+    <input 
+        name="credit"
+        type="text" 
+        id="credit" 
+        required  
+        minlength="6" 
+        maxlength="15"
+        pattern="^[0-9]*$"
+        placeholder="Enter your credit card number" 
+        [(ngModel)]="customer.creditCard"
+        #creditCard="ngModel">
+
+    <button type="submit" [disabled]="form.invalid" class="checkout-btn">
+        CHECKOUT
+    </button>
+</form>
+
+<div class="error-msg" *ngIf="fullName.invalid && fullName.dirty">
+    <div *ngIf="fullName.errors?.['required']">
+        Please provide a valid full name.
+    </div>
+    <div *ngIf="fullName.errors?.['minlength']">
+        The full name must contain at least 6 characters.
+    </div>
+    <div *ngIf="fullName.errors?.['maxlength']">
+        The full name must contain at most 64 characters.
+    </div>
+</div>
+
+<div class="error-msg" *ngIf="address.invalid && address.dirty">
+    <div *ngIf="address.errors?.['required']">
+        Please provide an address.
+    </div>
+    <div *ngIf="address.errors?.['minlength']">
+        The address must contain at least 6 characters.
+    </div>
+    <div *ngIf="address.errors?.['maxlength']">
+        The address must contain at most 64 characters.
+    </div>
+</div>
+
+<div class="error-msg" *ngIf="creditCard.invalid && creditCard.dirty">
+    <div *ngIf="creditCard.errors?.['required']">
+        Please provide the credit card number.
+    </div>
+    <div *ngIf="creditCard.errors?.['minlength']">
+        The credit card must contain at least 6 characters.
+    </div>
+    <div *ngIf="creditCard.errors?.['maxlength']">
+        The credit card must contain at most 15 characters.
+    </div>
+    <div *ngIf="creditCard.errors?.['pattern']">
+        The credit card must contain numbers only.
+    </div>
+</div>

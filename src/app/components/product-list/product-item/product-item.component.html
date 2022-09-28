@@ -1,0 +1,16 @@
+<div class="product-container">
+    <h5>{{ product.name }}</h5>
+    <a routerLink="/details">
+        <img 
+            class="product-image" 
+            src="{{product.url}}" 
+            alt="product-image"
+            (click)="sendToDetails()">
+    </a>
+    <p>${{ product.price }}</p>
+
+    <label for="amount">Amount</label>
+    <input type="number" id="amount" name="amount" max="10" min="1" [(ngModel)]="product.amount">
+
+    <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+</div>
